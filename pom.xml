@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <!-- Version -->
     <modelVersion>4.0.0</modelVersion>
@@ -252,7 +252,7 @@
         <staxonVersion>1.2</staxonVersion>
         <sxcVersion>0.7.3</sxcVersion>
         <testFtpServerVersion>1.0.6</testFtpServerVersion>
-        <tomcatVersion>6.0.53</tomcatVersion>
+        <tomcatVersion>9.0.109</tomcatVersion>
         <woodstoxVersion>4.4.1</woodstoxVersion>
         <wrapperVersion>3.2.3</wrapperVersion>
         <xmlPullVersion>1.1.3.4.O</xmlPullVersion>
@@ -1198,13 +1198,13 @@
 
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
-                <artifactId>jasper-el</artifactId>
+                <artifactId>tomcat-jasper-el</artifactId>
                 <version>${tomcatVersion}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
-                <artifactId>jasper</artifactId>
+                <artifactId>tomcat-jasper</artifactId>
                 <version>${tomcatVersion}</version>
                 <exclusions>
                     <!-- Duplicates, provided by other means -->
@@ -1221,7 +1221,7 @@
 
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
-                <artifactId>jsp-api</artifactId>
+                <artifactId>tomcat-jsp-api</artifactId>
                 <version>${tomcatVersion}</version>
                 <exclusions>
                     <!-- Duplicates, provided by other means -->
@@ -1234,13 +1234,13 @@
 
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
-                <artifactId>annotations-api</artifactId>
+                <artifactId>tomcat-annotations-api</artifactId>
                 <version>${tomcatVersion}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
-                <artifactId>juli</artifactId>
+                <artifactId>tomcat-juli</artifactId>
                 <version>${tomcatVersion}</version>
             </dependency>
 

@@ -33,9 +33,11 @@ import org.apache.commons.httpclient.cookie.NetscapeDraftSpec;
 import org.apache.commons.httpclient.cookie.RFC2109Spec;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.tomcat.util.http.Cookies;
+import org.apache.tomcat.util.http.CookieProcessor;
+import org.apache.tomcat.util.http.LegacyCookieProcessor;
 import org.apache.tomcat.util.http.MimeHeaders;
 import org.apache.tomcat.util.http.ServerCookie;
+import org.apache.tomcat.util.http.ServerCookies;
 
 /**
  * <p>
@@ -277,12 +279,15 @@ public class CookieHelper
         mimeHeaders.addValue(HttpConstants.HEADER_COOKIE).setBytes(headerValue.getBytes(), 0,
             headerValue.length());
 
-        Cookies cs = new Cookies(mimeHeaders);
+        ServerCookies cs = new ServerCookies(4);
+        CookieProcessor cookieProcessor = new LegacyCookieProcessor();
+        cookieProcessor.parseCookieHeader(mimeHeaders, cs);
+
         Cookie[] cookies = new Cookie[cs.getCookieCount()];
         for (int i = 0; i < cs.getCookieCount(); i++)
         {
             ServerCookie serverCookie = cs.getCookie(i);
-            cookies[i] = transformServerCookieToClientCookie(serverCookie);
+            cookies[i] = transformServerCookieToClientCookie(serverCookie, uri);
             if (uri != null)
             {
                 cookies[i].setSecure(uri.getScheme() != null && uri.getScheme().equalsIgnoreCase("https"));
@@ -299,11 +304,11 @@ public class CookieHelper
      * {@link ServerCookie} is the type that you get when parsing cookies as a
      * Server.
      */
-    protected static Cookie transformServerCookieToClientCookie(ServerCookie serverCookie)
+    protected static Cookie transformServerCookieToClientCookie(ServerCookie serverCookie, URI uri)
     {
         Cookie clientCookie = new Cookie(serverCookie.getDomain().toString(), serverCookie.getName()
             .toString(), serverCookie.getValue().toString(), serverCookie.getPath().toString(),
-            serverCookie.getMaxAge(), serverCookie.getSecure());
+            -1, uri.getScheme() != null && uri.getScheme().equalsIgnoreCase("https"));
         clientCookie.setComment(serverCookie.getComment().toString());
         clientCookie.setVersion(serverCookie.getVersion());
         return clientCookie;
@@ -316,8 +321,16 @@ public class CookieHelper
     public static String formatCookieForASetCookieHeader(Cookie cookie)
     {
         StringBuffer sb = new StringBuffer();
-        ServerCookie.appendCookieValue(sb, cookie.getVersion(), cookie.getName(), cookie.getValue(),
-            cookie.getPath(), cookie.getDomain(), cookie.getComment(), -1, cookie.getSecure(), false);
+        javax.servlet.http.Cookie httpCookie = new javax.servlet.http.Cookie(cookie.getName(), cookie.getValue());
+        httpCookie.setComment(cookie.getComment());
+        httpCookie.setDomain(cookie.getDomain());
+        httpCookie.setHttpOnly(true);
+        httpCookie.setMaxAge(-1);
+        httpCookie.setPath(cookie.getPath());
+        httpCookie.setSecure(cookie.getSecure());
+        httpCookie.setVersion(cookie.getVersion());
+
+        sb.append(new LegacyCookieProcessor().generateHeader(httpCookie));
 
         Date expiryDate = cookie.getExpiryDate();
         if (expiryDate != null)

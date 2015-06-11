@@ -39,7 +39,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
-            <artifactId>coyote</artifactId>
+            <artifactId>tomcat-coyote</artifactId>
             <version>${tomcatVersion}</version>
             <exclusions>
                 <exclusion>
@@ -90,12 +90,32 @@
             <artifactId>mule-module-xml</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>xqj-api</artifactId>
+                    <groupId>javax.xml.xquery</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>stax-utils</artifactId>
+                    <groupId>net.java.dev.stax-utils</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-scripting</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>js-engine</artifactId>
+                    <groupId>javax.script</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jruby-engine</artifactId>
+                    <groupId>javax.script</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.mule.transports</groupId>

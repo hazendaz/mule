@@ -27,6 +27,7 @@ public class MuleTomcatListener implements LifecycleListener
 
     protected MuleContext muleContext;
 
+    @Override
     public void lifecycleEvent(LifecycleEvent event)
     {
         if (Lifecycle.BEFORE_START_EVENT.equals(event.getType()))
