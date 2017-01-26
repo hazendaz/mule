@@ -11,6 +11,7 @@ import org.mule.util.IOUtils;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -108,6 +109,26 @@ public class CachedHttpServletRequest extends HttpServletRequestWrapper
         public long skip(long n) throws IOException
         {
             return this.cachedStream.skip(n);
+        }
+
+        @Override
+        public boolean isFinished()
+        {
+            // TODO Not supported currently
+            return false;
+        }
+
+        @Override
+        public boolean isReady()
+        {
+            // TODO Not supported currently
+            return false;
+        }
+
+        @Override
+        public void setReadListener(ReadListener listener)
+        {
+            // TODO Not supported currently
         }
     }
 }
