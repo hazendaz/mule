@@ -10,6 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 
 public class MockServletInputStream extends ServletInputStream
@@ -31,6 +32,26 @@ public class MockServletInputStream extends ServletInputStream
     public int read() throws IOException
     {
         return input.read();
+    }
+
+    @Override
+    public boolean isFinished()
+    {
+        // TODO Not supported currently
+        return false;
+    }
+
+    @Override
+    public boolean isReady()
+    {
+        // TODO Not supported currently
+        return false;
+    }
+
+    @Override
+    public void setReadListener(ReadListener listener)
+    {
+         // TODO Not supported currently
     }
 }
 

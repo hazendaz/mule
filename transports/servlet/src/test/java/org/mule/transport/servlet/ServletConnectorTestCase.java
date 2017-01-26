@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
+import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 
@@ -65,6 +66,26 @@ public class ServletConnectorTestCase extends AbstractConnectorTestCase
                             public int read() throws IOException
                             {
                                 return is.read();
+                            }
+
+                            @Override
+                            public boolean isFinished()
+                            {
+                                // TODO Not supported currently
+                                return false;
+                            }
+
+                            @Override
+                            public boolean isReady()
+                            {
+                                // TODO Not supported currently
+                                return false;
+                            }
+
+                            @Override
+                            public void setReadListener(ReadListener listener)
+                            {
+                                // TODO Not supported currently
                             }
                         };
                         return s;
