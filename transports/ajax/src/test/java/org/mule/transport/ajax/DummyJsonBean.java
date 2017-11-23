@@ -6,7 +6,7 @@
  */
 package org.mule.transport.ajax;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * TODO

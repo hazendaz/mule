@@ -9,10 +9,11 @@ package org.mule.module.json;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.node.ObjectNode;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class JsonNodeExpressionEvaluatorTestCase extends JsonExpressionEvaluatorTestCase
 {

@@ -8,13 +8,13 @@ package org.mule.module.json;
 
 import org.mule.routing.AbstractSplitter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ValueNode;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.ValueNode;
 
 /**
  * An JSON expression evaluator that returns {@link JsonNode}'s instead of strings.
@@ -36,7 +36,7 @@ public class JsonNodeExpressionEvaluator extends JsonExpressionEvaluator
         if (result instanceof ArrayNode)
         {
             List<Object> parts = new ArrayList<Object>();
-            for (Iterator<JsonNode> i = (result).getElements(); i.hasNext();)
+            for (Iterator<JsonNode> i = (result).elements(); i.hasNext();)
             {
                 JsonNode arrayNode = i.next();
                 parts.add(extractResultFromNode(arrayNode));
