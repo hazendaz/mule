@@ -6,9 +6,9 @@
  */
 package org.mule.module.json.transformers;
 
-import org.mule.tck.testmodels.fruit.FruitCleaner;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import org.mule.tck.testmodels.fruit.FruitCleaner;
 
 /**
  * TODO

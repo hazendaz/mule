@@ -6,7 +6,7 @@
  */
 package org.mule.json.model;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * An Email object

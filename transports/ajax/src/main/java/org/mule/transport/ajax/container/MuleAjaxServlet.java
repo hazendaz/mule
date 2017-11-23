@@ -172,7 +172,7 @@ public class MuleAjaxServlet extends ContinuationCometdServlet
                     {
                         return (String) jsonTransformer.transform(this);
                     }
-                    else if(AnnotationUtils.hasAnnotationWithPackage("org.codehaus.jackson", data.getClass()))
+                    else if(AnnotationUtils.hasAnnotationWithPackage("com.fasterxml.jackson", data.getClass()))
                     {
                         //Tell the transformer to accept this type next time
                         jsonBindings.add(data.getClass());

@@ -6,7 +6,6 @@
  */
 package org.mule.module.json.transformers;
 
-import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.mule.DefaultMuleMessage;
 import org.mule.api.MuleMessage;
 import org.mule.api.annotations.ContainsTransformerMethods;
@@ -31,6 +30,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 public class JsonCustomTransformerTestCase extends AbstractMuleContextTestCase
 {

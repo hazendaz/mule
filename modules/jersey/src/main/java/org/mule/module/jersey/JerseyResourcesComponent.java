@@ -46,7 +46,7 @@ import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.ExceptionMapper;
 
 import org.glassfish.jersey.internal.MapPropertiesDelegate;
-import org.glassfish.jersey.jackson1.Jackson1Feature;
+import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ApplicationHandler;
 import org.glassfish.jersey.server.ContainerRequest;
@@ -168,7 +168,7 @@ public class JerseyResourcesComponent extends AbstractComponent
 
         resourceConfig.addProperties(properties)
                       .registerClasses(resources)
-                      .register(Jackson1Feature.class)
+                      .register(JacksonFeature.class)
                       .register(MultiPartFeature.class);
 
         if (!resourceConfig.isRegistered(ResponseErrorMapper.class))

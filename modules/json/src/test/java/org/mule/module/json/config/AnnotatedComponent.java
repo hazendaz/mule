@@ -8,11 +8,11 @@ package org.mule.module.json.config;
 
 import org.mule.api.annotations.expression.JsonPath;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.codehaus.jackson.JsonNode;
 
 public class AnnotatedComponent
 {

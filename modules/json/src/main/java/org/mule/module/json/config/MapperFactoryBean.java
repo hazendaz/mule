@@ -6,8 +6,9 @@
  */
 package org.mule.module.json.config;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.config.AbstractFactoryBean;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Map;
 
@@ -33,8 +34,7 @@ public class MapperFactoryBean extends AbstractFactoryBean<ObjectMapper>
         {
             for (Map.Entry<Class<?>, Class<?>> entry : mixins.entrySet())
             {
-                mapper.getSerializationConfig().addMixInAnnotations(entry.getKey(), entry.getValue());
-                mapper.getDeserializationConfig().addMixInAnnotations(entry.getKey(), entry.getValue());
+                mapper.addMixIn(entry.getKey(), entry.getValue());
             }
         }
         return mapper;
