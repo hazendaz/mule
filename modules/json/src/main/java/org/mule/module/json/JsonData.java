@@ -6,6 +6,9 @@
  */
 package org.mule.module.json;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -16,11 +19,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-
 /**
- * A wrapper for the {@link org.codehaus.jackson.JsonNode} object that
+ * A wrapper for the {@link com.fasterxml.jackson.databind.JsonNode} object that
  * allows for nested object keys i.e. user/name will return the name property on
  * the user object.
  * <p/>
@@ -92,7 +92,7 @@ public class JsonData
     public JsonNode[] toArray() 
     {
         List<JsonNode> children = new ArrayList<JsonNode>();
-        for (Iterator<JsonNode> itr = node.getElements(); itr.hasNext();) 
+        for (Iterator<JsonNode> itr = node.elements(); itr.hasNext();) 
         {
             children.add(itr.next());
         }

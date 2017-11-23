@@ -34,22 +34,6 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!-- JSON deps, pulls in core and mapper -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-            <version>${jacksonVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>${jacksonVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-xc</artifactId>
-            <version>${jacksonVersion}</version>
-        </dependency>
         <!-- In case this version is changed, please verify shaded classes added due to MULE-18817 -->
         <dependency>
             <groupId>de.odysseus.staxon</groupId>
@@ -106,9 +90,14 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson2Version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson2Version}</version>
+            <version>${jacksonDatabind2Version}</version>
         </dependency>
         <dependency>
             <groupId>org.mozilla</groupId>

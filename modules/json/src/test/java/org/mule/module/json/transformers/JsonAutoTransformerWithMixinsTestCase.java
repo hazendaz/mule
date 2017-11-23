@@ -14,13 +14,14 @@ import org.mule.tck.junit4.AbstractMuleContextTestCase;
 import org.mule.tck.testmodels.fruit.Apple;
 import org.mule.transformer.types.DataTypeFactory;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 //TODO: IBEANS-141. No support for Mixin resolution yet
 public class JsonAutoTransformerWithMixinsTestCase extends AbstractMuleContextTestCase
@@ -33,8 +34,7 @@ public class JsonAutoTransformerWithMixinsTestCase extends AbstractMuleContextTe
         //We don't register a custom transformer, instead we register a 'global' mapper that will
         //be used for Json transforms
         ObjectMapper mapper = new ObjectMapper();
-        mapper.getSerializationConfig().addMixInAnnotations(Apple.class, AppleMixin.class);
-        mapper.getDeserializationConfig().addMixInAnnotations(Apple.class, AppleMixin.class);
+        mapper.addMixIn(Apple.class, AppleMixin.class);
         muleContext.getRegistry().registerObject("mapper", mapper);
     }
 

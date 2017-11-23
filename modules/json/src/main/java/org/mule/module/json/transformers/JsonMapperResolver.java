@@ -6,15 +6,15 @@
  */
 package org.mule.module.json.transformers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.mule.api.MuleContext;
 import org.mule.config.transformer.AbstractAnnotatedTransformerArgumentResolver;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
 /**
- * This resolver is used by the transform engine to inject a {@link org.codehaus.jackson.map.ObjectMapper} into a method that requires it.
+ * This resolver is used by the transform engine to inject a {@link com.fasterxml.jackson.databind.ObjectMapper} into a method that requires it.
  * A shared ObjectMapper context can be created for the application and stored in the registry, this will get injected
- * into any transform methods that add {@link org.codehaus.jackson.map.ObjectMapper} to the method signature.
+ * into any transform methods that add {@link com.fasterxml.jackson.databind.ObjectMapper} to the method signature.
  * <p/>
  * If there is no shared Object Mapper one will be created for the transformer using the return type as the Json root element.
  *
@@ -22,7 +22,7 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 public class JsonMapperResolver extends AbstractAnnotatedTransformerArgumentResolver
 {
-    public static final String ANNOTATIONS_PACKAGE_NAME = "org.codehaus.jackson";
+    public static final String ANNOTATIONS_PACKAGE_NAME = "com.fasterxml.jackson";
 
     /**
      * {@inheritDoc}
