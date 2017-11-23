@@ -178,11 +178,11 @@
         <guavaVersion>26.0-android</guavaVersion>
         <hamcrestVersion>1.3</hamcrestVersion>
         <hk2Version>2.3.0-b05</hk2Version>
-        <jacksonVersion>1.9.14-MULE-002</jacksonVersion>
-        <jackson2Version>2.9.9</jackson2Version>
+        <jackson2Version>2.13.3</jackson2Version>
+        <jacksonDatabind2Version>2.13.3</jacksonDatabind2Version>
         <javax.inject.version>1</javax.inject.version>
         <javax.transaction.version>1.2</javax.transaction.version>
-        <jerseyVersion>2.11</jerseyVersion>
+        <jerseyVersion>2.12</jerseyVersion>
         <javassistVersion>3.7.ga</javassistVersion>
         <jakartaMailVersion>1.6.4</jakartaMailVersion>
         <javaXmlBindVersion>2.3.1-MULE-001</javaXmlBindVersion>
@@ -1266,34 +1266,8 @@
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jersey.media</groupId>
-                <artifactId>jersey-media-json-jackson1</artifactId>
+                <artifactId>jersey-media-json-jackson</artifactId>
                 <version>${jerseyVersion}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.codehaus.jackson</groupId>
-                        <artifactId>jackson-lgpl</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.codehaus.jettison</groupId>
-                        <artifactId>jettison</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>javax.xml.stream</groupId>
-                        <artifactId>stax-api</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <artifactId>stax-api</artifactId>
-                        <groupId>stax</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.codehaus.jackson</groupId>
-                        <artifactId>jackson-jaxrs</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.codehaus.jackson</groupId>
-                        <artifactId>jackson-mapper-asl</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jersey.media</groupId>

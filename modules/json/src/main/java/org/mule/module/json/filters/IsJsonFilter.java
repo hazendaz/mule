@@ -10,11 +10,12 @@ import org.mule.api.MuleMessage;
 import org.mule.api.routing.filter.Filter;
 import org.mule.util.StringUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * A filter that will determine if the current message payload is a JSON encoded message.

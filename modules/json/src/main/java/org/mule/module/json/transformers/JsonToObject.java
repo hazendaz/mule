@@ -56,12 +56,12 @@ public class JsonToObject extends AbstractJsonTransformer
         //Add shared mixins first
         for (Map.Entry<Class<?>, Class<?>> entry : getMixins().entrySet())
         {
-            getMapper().getDeserializationConfig().addMixInAnnotations(entry.getKey(), entry.getValue());
+            getMapper().addMixIn(entry.getKey(), entry.getValue());
         }
 
         for (Map.Entry<Class<?>, Class<?>> entry : deserializationMixins.entrySet())
         {
-            getMapper().getDeserializationConfig().addMixInAnnotations(entry.getKey(), entry.getValue());
+            getMapper().addMixIn(entry.getKey(), entry.getValue());
         }
     }
 

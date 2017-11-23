@@ -8,20 +8,21 @@ package org.mule.module.json;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+
+import org.junit.Test;
 import org.mule.tck.junit4.AbstractMuleContextTestCase;
 import org.mule.util.IOUtils;
 
 import com.fasterxml.jackson.databind.JsonNode;
-
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.ObjectNode;
-import org.junit.Test;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class JsonDataTestCase extends AbstractMuleContextTestCase
 {
