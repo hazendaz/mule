@@ -10,7 +10,7 @@ import org.mule.api.lifecycle.InitialisationException;
 import org.mule.api.transformer.DiscoverableTransformer;
 import org.mule.transformer.AbstractMessageTransformer;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
 import java.util.Map;

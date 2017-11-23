@@ -129,7 +129,7 @@
                 The JSON Object mapper can be configured using the {{mapper-ref}} attribute. This is an object reference
                 to an
                 instance of:
-                {{org.codehaus.jackson.Mapper}}. This can be created as a spring bean. Usually the default mapper is
+                {{com.fasterxml.jackson.databind.ObjectMapper}}. This can be created as a spring bean. Usually the default mapper is
                 sufficient.
 
                 Often users will want to configure exclusions or inclusions when serializing objects. This can be done
@@ -167,7 +167,7 @@
                         <xsd:documentation>
                             The JSON engine can be configured using this attribute. This is an object
                             reference to an instance of:
-                            {{org.codehaus.jackson.map.ObjectMapperpper}}. This can be created as a bean and injected.  This can be created using the &lt;mapper/&gt; element.
+                            {{com.fasterxml.jackson.databind.ObjectMapper}}. This can be created as a bean and injected.  This can be created using the &lt;mapper/&gt; element.
                         </xsd:documentation>
                     </xsd:annotation>
                 </xsd:attribute>

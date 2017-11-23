@@ -11,6 +11,9 @@ import static org.junit.Assert.assertThat;
 import static org.mule.test.integration.exceptions.CatchExceptionStrategyTestCase.JSON_REQUEST;
 import static org.mule.test.integration.exceptions.CatchExceptionStrategyTestCase.JSON_RESPONSE;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.mule.api.MuleEvent;
 import org.mule.api.MuleException;
 import org.mule.api.MuleMessage;
@@ -20,8 +23,6 @@ import org.mule.api.transaction.Transaction;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.mule.transaction.TransactionCoordination;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.hamcrest.core.Is;
 import org.hamcrest.core.IsNull;
 import org.junit.Test;

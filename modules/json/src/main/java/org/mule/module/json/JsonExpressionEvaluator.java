@@ -12,16 +12,17 @@ import org.mule.config.i18n.CoreMessages;
 import org.mule.expression.AbstractExpressionEvaluator;
 import org.mule.util.NumberUtils;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ValueNode;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ArrayNode;
-import org.codehaus.jackson.node.ObjectNode;
-import org.codehaus.jackson.node.ValueNode;
 
 /**
  * An expression evaluator to allow users to define json expressions in their mule configuration, i.e.
@@ -156,7 +157,7 @@ public class JsonExpressionEvaluator extends AbstractExpressionEvaluator
         else if (result instanceof ArrayNode)
         {
             List<Object> parts = new ArrayList<Object>();
-            for (Iterator<JsonNode> i = result.getElements(); i.hasNext();)
+            for (Iterator<JsonNode> i = result.elements(); i.hasNext();)
             {
                 JsonNode arrayNode = i.next();
                 parts.add(extractResultFromNode(arrayNode));

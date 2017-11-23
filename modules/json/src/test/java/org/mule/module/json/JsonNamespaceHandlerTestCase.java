@@ -10,6 +10,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.mule.module.json.filters.IsJsonFilter;
 import org.mule.module.json.transformers.FruitCollection;
 import org.mule.module.json.transformers.JsonBeanRoundTripTestCase;
@@ -21,8 +24,6 @@ import org.mule.module.json.transformers.ObjectToJson;
 import org.mule.module.json.transformers.XmlToJson;
 import org.mule.tck.junit4.FunctionalTestCase;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 
 public class JsonNamespaceHandlerTestCase extends FunctionalTestCase

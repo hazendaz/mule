@@ -14,9 +14,9 @@ import org.mule.json.model.EmailAddress;
 import org.mule.json.model.Item;
 import org.mule.json.model.Person;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,7 +54,7 @@ public class JsonCustomTransformer
     {
         List<Item> items = new ArrayList<Item>();
         ArrayNode nodes = (ArrayNode) mapper.readTree(in);
-        for (Iterator<JsonNode> iterator = nodes.getElements(); iterator.hasNext();)
+        for (Iterator<JsonNode> iterator = nodes.elements(); iterator.hasNext();)
         {
             //TODO, we're reparsing content here
             items.add(mapper.readValue(iterator.next().toString(), Item.class));
@@ -68,7 +68,7 @@ public class JsonCustomTransformer
     {
         List<Person> people = new ArrayList<Person>();
         ArrayNode nodes = (ArrayNode) mapper.readTree(in);
-        for (Iterator<JsonNode> iterator = nodes.getElements(); iterator.hasNext();)
+        for (Iterator<JsonNode> iterator = nodes.elements(); iterator.hasNext();)
         {
             //TODO, we're reparsing content here
              people.add(mapper.readValue(iterator.next().toString(), Person.class));

@@ -11,7 +11,7 @@ import org.mule.api.annotations.ContainsTransformerMethods;
 import org.mule.api.annotations.Transformer;
 import org.mule.tck.testmodels.fruit.Apple;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,8 +28,7 @@ public class JsonCustomTransformerWithMixins
     public void init()
     {
         mapper = new ObjectMapper();
-        mapper.getSerializationConfig().addMixInAnnotations(Apple.class, AppleMixin.class);
-        mapper.getDeserializationConfig().addMixInAnnotations(Apple.class, AppleMixin.class);
+        mapper.addMixIn(Apple.class, AppleMixin.class);
     }
 
     @Transformer(sourceTypes = {InputStream.class, byte[].class})

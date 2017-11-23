@@ -20,6 +20,8 @@ import org.mule.config.i18n.CoreMessages;
 import org.mule.transformer.simple.ObjectToString;
 import org.mule.util.CollectionUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -27,15 +29,14 @@ import java.util.WeakHashMap;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * A {@link org.mule.api.registry.TransformerResolver} implementation used to discover whether the current transform
  * requests requires Json mashaling. The resolver will scan the source and return type for Jackson (http://jackson.codehaus.org) Json annotations and will configure
  * a JSON transformer accordingly.  The transformer is cached and will be used for any subsequent requests.
  *
- * The {@link org.codehaus.jackson.map.ObjectMapper} instance needed for the transform can be discovered from the registry, this means one can be
- * pre-configured in Spring or Guice.  If there is no pre-configured {@link org.codehaus.jackson.map.ObjectMapper} one will be created with the
+ * The {@link com.fasterxml.jackson.databind.ObjectMapper} instance needed for the transform can be discovered from the registry, this means one can be
+ * pre-configured in Spring or Guice.  If there is no pre-configured {@link com.fasterxml.jackson.databind.ObjectMapper} one will be created with the
  * annotated JSON class.  This context will cached with the transformer.
  *
  * @since 3.0
