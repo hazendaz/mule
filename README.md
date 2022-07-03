@@ -1,3 +1,21 @@
+### JWL 7/3/2022 Notice ###
+
+The original mule branch for 3.9.x has changed many times and appeared to have been force rewritten at some point since 2021.  Since the entire point of what I had was to support tomcat 9 releases, use jackson 2 only,
+and support servlet 3.1.0, I've rebased and skipped all conflicts except for my 4 commits.
+
+The 4 commits are as follows
+
+- [mule-transports-http] Support tomcat 9.0.109 cookie handling
+- [servlet] Update to servlet 3.1.0 with methods being unsupported for now
+- [enhance] Upgrade jackson1 entirely to jackson2 2.20.2
+- [ci] Add a readme to clarify pain point with mule
+
+Why was this never pushed to mule proper?  Mule was too painful to work with back when it was mulesoft.  I'm sure that has changed.  It took nearly a year to just get tomcat 6/7 support from 5 and wasn't worth the effort.
+Because they further needed to continue to support tomcat 6/7 at that time, various tickets pointed to this repo to get tomcat 8+ support.  Later on the servlet / jackson was added but didn't see the effort to get into mule
+worth it and given many years, mule hasn't seen any point either plus 3.x is essentially eol even though as of 2025 its still used and mule has continued to extend support.
+
+###########################
+
 Stop the point-to-point madness
 ===============================
 Mule is a lightweight integration platform that allows you to connect anything anywhere. Rather than creating point-to-point integrations between systems, services, APIs and devices, you can use Mule to intelligently manage message-routing, data mapping, orchestration, reliability, security and scalability between nodes. Plug other systems and applications into Mule and let it handle all the communication betweens systems, enabling you track and monitor everything that happens. 
